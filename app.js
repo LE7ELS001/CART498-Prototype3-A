@@ -45,7 +45,7 @@ let simulatedOffline = read('offline',false);
 let lastFocus;
 
 const img = (name,cls='',folder='assets') => '<img alt="" class="'+cls+'" src="'+folder+'/'+name+'">';
-const icon = (name,cls='icon') => night ? img(name+'-night.svg',cls) : img(name+'.svg',cls,'../assets/app-shell');
+const icon = (name,cls='icon') => night ? img(name+'-night.svg',cls) : img(name+'.svg',cls,'assets/app-shell');
 const button = (label,action,cls='',extra='') => '<button type="button" class="'+cls+'" data-action="'+action+'" '+extra+'>'+label+'</button>';
 const goButton = (label,destination,cls='',extra='') => button(label,'go:'+destination,cls,extra);
 const ui = (name,cls='ui-icon') => {
@@ -55,7 +55,7 @@ const ui = (name,cls='ui-icon') => {
 const back = () => button(ui('back'),'back','circle','aria-label="Back"');
 const heading = (title,action='') => '<header class="page-heading">'+back()+action+'<h1>'+title+'</h1></header>';
 const photo = (item,framed=false) => item.photo ? img(item.photo+'.jpg','cover'+(framed?' frame-'+item.id:'')) : '';
-const areaPhoto = (item,cls='') => item.photo ? img(item.photo,cls,'../assets/performer-home') : '';
+const areaPhoto = (item,cls='') => item.photo ? img(item.photo,cls,'assets/performer-home') : '';
 const heart = (item,onPhoto=false) => button(img((favorite.has(item.id)?'favorite-solid':'favorite-outline')+(night&&!onPhoto?'-night':'')+'.svg','ui-icon'),'favorite:'+item.id,'heart','aria-label="Favorite '+item.name+'" aria-pressed="'+favorite.has(item.id)+'"');
 function previewButton(item) {
   return button('','preview:'+item.id,'preview','data-preview="'+item.id+'" aria-label="Preview 15 seconds"');
